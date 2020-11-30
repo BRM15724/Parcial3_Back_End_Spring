@@ -1,0 +1,10 @@
+@charset "ISO-8859-1";
+
+
+body {
+  font-family:Helvetica,Futura,Arial,Verdana,sans-serif;
+}
+
+H1 {
+	color: red;
+}

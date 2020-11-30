@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns: th="http://www.thymeleaf.org">
+<head>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<meta charset="ISO-8859-1">
+<title th:text="${titulo}">Titulo</title>
+</head>
+<style>
+body {
+	font-family: Helvetica, Futura, Arial, Verdana, sans-serif;
+}
+
+.formulario {
+	float: left;
+	width: 50%;
+	margin-left:25%;
+}
+
+.resultados {
+	float: left;
+	width: 50%;
+}
+.error{
+	color: red;
+	font-size: 10px;
+}
+</style>
+<body>
+
+	<div style="width:100%; text-align:center;">
+		<a href="http://localhost:8080/Trabajador/index"><img style="width:3%; float: left; margin-left: 27%" src="https://res.cloudinary.com/http-loyverseapi-facturacionzoho-com-v1/image/upload/v1606700850/Personal/back_jazjcy.png"></a>
+		<div style="width: 40%; float: left;" ><h1 th:text="${titulo}">Titulo</h1></div>
+		<a href="http://localhost:8080/Trabajador/index"><img style="width:3%; float: left; margin-right: 27%" src="https://res.cloudinary.com/http-loyverseapi-facturacionzoho-com-v1/image/upload/v1606700850/Personal/home_y2kc7e.png"></a>
+	</div>
+	
+	<div class="formulario">
+	
+		<form th:action="@{/Trabajador/form_eliminar}" method="Post">
+		
+			<div class="form-group">
+				<label for="id">ID</label>
+				<div>
+					<input class="form-control" type="number" id="id" name="id" >
+				</div>
+			</div>
+			<p class="error" th:text="${error}">error</p>
+			<div>
+				<input class="btn btn-primary" type="submit" value="enviar">
+			</div>
+		</form>
+	</div>
+</body>
+</html>

@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html xmlns: th="http://www.thymeleaf.org">
+<head>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<meta charset="ISO-8859-1">
+<title th:text="${titulo}">Titulo</title>
+</head>
+<style>
+body {
+	font-family: Helvetica, Futura, Arial, Verdana, sans-serif;
+}
+
+.formulario {
+	float: left;
+	width: 40%;
+	margin-left:5%;
+	margin-right:5%;
+}
+
+.resultados {
+
+	margin-top: 30px;
+	float: left;
+	width: 50%;
+}
+
+table {
+  border: black 1px solid;
+}
+
+tbody {
+  border: black 1px solid;
+}
+
+tr {
+  border: black 1px solid;
+}
+
+th {
+  border: black 1px solid;
+  padding-left:10px;
+  padding-right:10px;
+}
+
+td {
+  border: black 1px solid;
+  padding-left:10px;
+  padding-right:10px;
+}
+.error{
+	color: red;
+	font-size: 10px;
+}
+</style>
+<body>
+
+	<div style="width:100%; text-align:center;">
+		<a href="http://localhost:8080/Trabajador/index"><img style="width:3%; float: left; margin-left: 27%" src="https://res.cloudinary.com/http-loyverseapi-facturacionzoho-com-v1/image/upload/v1606700850/Personal/back_jazjcy.png"></a>
+		<div style="width: 40%; float: left;" ><h1 th:text="${titulo}">Titulo</h1></div>
+		<a href="http://localhost:8080/Trabajador/index"><img style="width:3%; float: left; margin-right: 27%" src="https://res.cloudinary.com/http-loyverseapi-facturacionzoho-com-v1/image/upload/v1606700850/Personal/home_y2kc7e.png"></a>
+	</div>
+	<div class="formulario">
+	
+		<form th:action="@{/Trabajador/form_editar}" method="post" th:object="${trabajador}">
+		
+			<div class="form-group">
+				<label for="id">ID</label>
+				<div>
+					<input class="form-control" type="number" id="id" th:field="*{id}">
+				</div>
+				<div class="error" th:if="${#fields.hasErrors('id')}" th:errors="*{id}"></div>
+			</div>
+			
+			<div class="form-group">
+				<label for="nombre">Nombre</label>
+				<div>
+					<input class="form-control" type="text" id="nombre" th:field="*{nombre}">
+				</div>
+				<div class="error" th:if="${#fields.hasErrors('nombre')}" th:errors="*{nombre}"></div>
+			</div>
+			
+			<div class="form-group">
+				<label for="apellido">Edad</label>
+				<div>
+					<input class="form-control" type="text" id="edad" th:field="*{edad}">
+				</div>
+				<div class="error" th:if="${#fields.hasErrors('edad')}" th:errors="*{edad}"></div>
+			</div>
+			
+			<div class="form-group">
+				<label for="salario">Salario</label>
+				<div>
+					<input class="form-control" type="text" id="salario" th:field="*{salario}">
+				</div>
+				<div class="error" th:if="${#fields.hasErrors('salario')}" th:errors="*{salario}"></div>
+			</div>
+			
+			<div>
+				<input class="btn btn-primary" type="submit" value="enviar">
+			</div>
+		</form>
+	</div>
+	<div class="resultados">
+	<table>
+		<thead>
+			<tr>
+				<th>ID</th>
+				<th>Nombre</th>
+				<th>Edad</th>
+				<th>Salario</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:each="trabajador: ${listaTrabajador}">
+				<td th:text="${trabajador.id}">id</td>
+				<td th:text="${trabajador.nombre}">nombre</td>
+				<td th:text="${trabajador.edad}">edad</td>
+				<td th:text="${trabajador.salario}">salario</td>
+			</tr>
+		</tbody>
+	</table>
+	</div>
+</body>
+</html>
