@@ -1,22 +1,90 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="ISO-8859-1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <title th:text="${titulo}">Titulo</title>
 </head>
 <style>
 body {
 font-family:Helvetica,Futura,Arial,Verdana,sans-serif;
 }
+
+table {
+  border: black 1px solid;
+}
+
+tbody {
+  border: black 1px solid;
+}
+
+tr {
+  border: black 1px solid;
+}
+
+th {
+  border: black 1px solid;
+  padding-left:10px;
+  padding-right:10px;
+}
+
+td {
+  border: black 1px solid;
+  padding-left:10px;
+  padding-right:10px;
+}
 </style>
 <body>
 	<div style="margin-left:25%; width: 50%;"><h1 th:text="${titulo}">Titulo</h1></div>
 	<br>
-	<h2>Para entrar al Control de Trabajadores:</h2>
+	<h2>Para entrar al Control de Maestros:</h2>
 	<dd>
 		<p>
-			Acceder a: <a href="http://localhost:8080/Trabajador/index">http://localhost:8080/Trabajador/index</a>
+			Acceder a: <a href="http://localhost:8080/Maestro/index">http://localhost:8080/Maestro/index</a>
 		</p>
 	</dd>
+	<div>
+		<div>
+			<h3>Mejoras</h3>
+			<ul type="tipo">
+			<li>En este Parcial 3 se mejoró la funcionalidad del programa del Parcial 2 añadiendo una base de datos en H2 en lugar de usar una lista.</li>
+			<li>Se agregó un nuevo botón donde podemos ver una lista de maestros con botones individuales por cada maestro para editarlo o eliminarlo.</li>
+			<li>Se agregó un servicio REST para poder consumir las funcionalidades CRUD a través de una URL.</li>
+			</ul>
+		</div>
+		<div>
+			<h3>REST</h3>
+			<p>* Punto 4 de este parcial.</p>
+			<table>
+				<thead>
+					<tr>
+						<th>Funcion</th>
+						<th>URL</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>Mostrar todos los maestros</td>
+						<td><a href="http://localhost:8080/restMaestro" target="_blank">http://localhost:8080/restMaestro</a></td>
+					</tr>
+					<tr>
+						<td>Mostrar un maestro especifico</td>
+						<td><a href="http://localhost:8080/restMaestro/1" target="_blank">http://localhost:8080/restMaestro/1</a></td>
+					</tr>
+					<tr>
+						<td>Agregar un maestro</td>
+						<td><a href="http://localhost:8080/restMaestro/agregar/100/Paco/24/15500.0" target="_blank">http://localhost:8080/restMaestro/agregar/100/Paco/24/15500.0</a></td>
+					</tr>
+					<tr>
+						<td>Editar un maestro</td>
+						<td><a href="http://localhost:8080/restMaestro/editar/100/Pancho/23/20500.0" target="_blank">http://localhost:8080/restMaestro/editar/100/Pancho/23/20500.0</a></td>
+					</tr>
+					<tr>
+						<td>Eliminar un maestro especifico</td>
+						<td><a href="http://localhost:8080/restMaestro/eliminar/100" target="_blank">http://localhost:8080/restMaestro/eliminar/100</a></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
 </body>
 </html>

@@ -10,12 +10,13 @@ import java.lang.annotation.Target;
 import javax.validation.Constraint;
 import javax.validation.Payload;
 
+//ESTA CLASE AYUDA A RESOLVER PROBLEMATICA DE PUNTO 2 DEL PARCIAL 3
 @Constraint(validatedBy = MayorDeEdadValidator.class)
 @Retention(RUNTIME)
 @Target({ FIELD, METHOD })
 public @interface MayorDeEdad {
-
-	String message() default "*El trabajador debe ser mayor de edad.";
+	
+	String message() default "*El maestro debe ser mayor de edad.";
 
 	Class<?>[] groups() default { };
 

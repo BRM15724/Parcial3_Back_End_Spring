@@ -16,7 +16,7 @@ public class indexController {
 	
 	@RequestMapping(path = { "/index", "/" }, method = RequestMethod.GET)
 	public String index(Model model) {
-		model.addAttribute("titulo", env.getProperty("mensaje.tituloIndex")); // PUNTO 2 DEL EXAMEN, MENSAJES EN "mensajes.properties"
+		model.addAttribute("titulo", env.getProperty("mensaje.tituloIndex"));
 		return "index";
 	}
 }

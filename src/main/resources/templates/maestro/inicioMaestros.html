@@ -46,23 +46,26 @@ td {
 	<div style="width:100%; text-align:center;">
 		<a href="http://localhost:8080/"><img style="width:3%; float: left; margin-left: 27%" src="https://res.cloudinary.com/http-loyverseapi-facturacionzoho-com-v1/image/upload/v1606700850/Personal/back_jazjcy.png"></a>
 		<div style="width: 40%; float: left;" ><h1 th:text="${titulo}">Titulo</h1></div>
-		<a href="http://localhost:8080/Trabajador/index"><img style="width:3%; float: left; margin-right: 27%" src="https://res.cloudinary.com/http-loyverseapi-facturacionzoho-com-v1/image/upload/v1606700850/Personal/home_y2kc7e.png"></a>
+		<a href="http://localhost:8080/Maestro/index"><img style="width:3%; float: left; margin-right: 27%" src="https://res.cloudinary.com/http-loyverseapi-facturacionzoho-com-v1/image/upload/v1606700850/Personal/home_y2kc7e.png"></a>
 	</div>
 	
 	<div class="menu">
 		<br>
 		<h2>Menu de opciones:</h2>
 		<dd>
-			<a th:href="@{/Trabajador/form_alta}"><button type="button" class="btn btn-success">Agregar trabajador</button></a>
+			<a th:href="@{/Maestro/listar}"><button type="button" class="btn btn-secondary">Listar todos</button></a>
 		</dd>
 		<dd>
-			<a th:href="@{/Trabajador/form_eliminar}"><button type="button" class="btn btn-danger">Eliminar trabajador</button></a>
+			<a th:href="@{/Maestro/form_alta}"><button type="button" class="btn btn-success">Agregar maestro</button></a>
 		</dd>
 		<dd>
-			<a th:href="@{/Trabajador/form_editar}"><button type="button" class="btn btn-primary">Editar trabajador</button></a>
+			<a th:href="@{/Maestro/form_eliminar}"><button type="button" class="btn btn-danger">Eliminar maestro</button></a>
 		</dd>
 		<dd>
-			<a th:href="@{/Trabajador/menu_buscar}"><button type="button" class="btn btn-light">Buscar trabajador</button></a>
+			<a th:href="@{/Maestro/form_editar}"><button type="button" class="btn btn-primary">Editar maestro</button></a>
+		</dd>
+		<dd>
+			<a th:href="@{/Maestro/menu_buscar}"><button type="button" class="btn btn-light">Buscar maestro</button></a>
 		</dd>
 	</div>
 	<div class="resultados">
@@ -76,11 +79,11 @@ td {
 			</tr>
 		</thead>
 		<tbody>
-			<tr th:each="trabajador: ${listaTrabajador}">
-				<td th:text="${trabajador.id}">id</td>
-				<td th:text="${trabajador.nombre}">nombre</td>
-				<td th:text="${trabajador.edad}">edad</td>
-				<td th:text="${trabajador.salario}">salario</td>
+			<tr th:each="maestro: ${listaMaestro}">
+				<td th:text="${maestro.id}">id</td>
+				<td th:text="${maestro.nombre}">nombre</td>
+				<td th:text="${maestro.edad}">edad</td>
+				<td th:text="${maestro.salario}">salario</td>
 			</tr>
 		</tbody>
 	</table>

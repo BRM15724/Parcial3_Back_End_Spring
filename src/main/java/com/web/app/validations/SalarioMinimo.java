@@ -10,6 +10,7 @@ import java.lang.annotation.Target;
 import javax.validation.Constraint;
 import javax.validation.Payload;
 
+//ESTA CLASE AYUDA A RESOLVER PROBLEMATICA DE PUNTO 2 DEL PARCIAL 3
 @Constraint(validatedBy = SalarioMinimoValidator.class)
 @Retention(RUNTIME)
 @Target({ FIELD, METHOD })

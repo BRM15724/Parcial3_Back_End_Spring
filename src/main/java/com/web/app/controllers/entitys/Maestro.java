@@ -1,24 +1,28 @@
-package com.web.app.models;
+package com.web.app.controllers.entitys;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 
 import com.web.app.validations.MayorDeEdad;
 import com.web.app.validations.SalarioMinimo;
 
-public class Trabajador {
-	
-	@NotNull // PUNTO 2 DEL EXAMEN, VALIDACIONES
+@Entity
+@Table(name = "maestro")
+public class Maestro {
+	// LOS MENSAJES DE VALIDACIONES ESTAN EN "messages.properties"
+	@Id
+	@NotNull      // PUNTO 2 DE ESTE PARCIAL 3, REALIZO VALIDACION.
 	private Integer id;
-	
-	@NotEmpty // PUNTO 2 DEL EXAMEN, VALIDACIONES
+	//@Column(name = "NombreX")
+	@NotEmpty     // PUNTO 2 DE ESTE PARCIAL 3, REALIZO VALIDACION.
 	private String nombre;
-	
-	@NotNull // PUNTO 2 DEL EXAMEN, VALIDACIONES
-	@MayorDeEdad // PUNTO 2 DEL EXAMEN, VALIDACIONES, esta validacion fue hecha por mi y se encunetra en "com.web.app.validations" dentro de "MayorDeEdad"
+	@NotNull
+	@MayorDeEdad    // PUNTO 2 DE ESTE PARCIAL 3, REALIZO VALIDACION PERSONALIZADA DE EDAD ADULTA.
 	private Integer edad;
-	
-	@SalarioMinimo // PUNTO 2 DEL EXAMEN, VALIDACIONES
+	@SalarioMinimo	// PUNTO 2 DE ESTE PARCIAL 3, REALIZO VALIDACION PERSONALIZADA DE SALARIO MINIMO.
 	private float salario;
 
 	public Integer getId() {
